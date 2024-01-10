@@ -1,0 +1,39 @@
+﻿﻿@{
+    ViewData["Title"] = "UserPage";
+}
+@model UserModel
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+<h2>Üye Sayfası</h2>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        @if (Model.Role == "Uye")
+        {
+            <span class="badge bg-info">Normal Üye</span>
+        }
+        @if (Model.Role == "Admin")
+        {
+            <span class="badge bg-info">Yönetici Üye</span>
+        }
+        <table class="table table-bordered table-dark">
+            <tr>
+                <td><b>Adı Soyadı</b></td>
+                <td>@Model.FullName</td>
+            </tr>
+            <tr>
+                <td><b>Kullanıcı Adı</b></td>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <td><b>E-Posta</b></td>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <td><b>Şehir</b></td>
+                <td>@Model.City</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "soruEkle";
+}
+@model QuestionModel
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Örnek Sorular</h1>
+        <div>
+            <h3>Soru Listesi</h3>
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <h5 class="mb-1">Temel Hesaplamalar:</h5>
+                    <p class="mb-1">Python kullanarak bir hesap makinesi yapmak için hangi temel aritmetik operatörleri kullanmalıyım ve bunları nasıl uygulamalıyım?</p>
+                    <small>Sorulma Tarihi: 08 Şubat 2023</small>
+                </li>
+
+            </ul>
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <h5 class="mb-1">Kullanıcı Girişi ve İşlem Seçimi:</h5>
+                    <p class="mb-1">Python'da kullanıcıdan iki sayı ve bir matematiksel işlem (örneğin, +, -, *, /) alarak hesap makinesi işlemlerini gerçekleştirmek için bir program nasıl yazılır?</p>
+                    <small>Sorulma Tarihi: 25 Nisan 2023</small>
+                </li>
+
+            </ul>
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <h5 class="mb-1">Hata Kontrolü:</h5>
+                    <p class="mb-1">Kullanıcıdan alınan girişlerin doğruluğunu kontrol etmek ve hatalı giriş durumlarında uygun bir hata mesajı göstermek için Python'da nasıl bir kod yazılır?</p>
+                    <small>Sorulma Tarihi: 06 Temmuz 2023</small>
+                </li>
+
+            </ul>
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <h5 class="mb-1">Fonksiyonlar Kullanarak Hesaplama:</h5>
+                    <p class="mb-1">Python'da fonksiyonlar kullanarak bir hesap makinesi yapmanın avantajları nelerdir ve temel aritmetik işlemleri fonksiyonlarla nasıl gerçekleştirebilirim?</p>
+                    <small>Sorulma Tarihi: 13 Aralık 2023</small>
+                </li>
+
+            </ul>
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <h5 class="mb-1">Gelişmiş Hesaplamalar ve Kütüphane Kullanımı:</h5>
+                    <p class="mb-1">Python'da matematik kütüphanesini kullanarak üssel, logaritmik veya trigonometrik hesaplamaları içeren bir hesap makinesi nasıl oluşturulur?</p>
+                    <small>Sorulma Tarihi: 22 Aralık 2023</small>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Soru Ekle</h1>
+
+        <form method="post" asp-action="soruEkle" enctype="multipart/form-data">
+            <div class="mb-4">
+                <h3>Soru Ekle</h3>
+                <div class="form-group">
+                    <label asp-for="Title">Soru Başlığı:</label>
+                    <input asp-for="Title" class="form-control" placeholder="Sorunuzu buraya yazın" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content">Soru İçeriği:</label>
+                    <textarea asp-for="Content" class="form-control" rows="3" placeholder="Sorunuzun detayını buraya yazın"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Soruyu Gönder</button>
+            </div>
+        </form>
+    </div>
+    <br />
+    <br />
+</body>

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Cevap Ekle";
+}
+
+@model soruCevapPortali.ViewModels.AnswerModel
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="container mt-5">
+    <h1 class="mb-4">Cevap Ekle</h1>
+
+    <form method="post" asp-action="cevapEkle" enctype="multipart/form-data">
+        <div class="mb-4">
+            <h3>Soru Ekle</h3>
+            <div class="form-group">
+                <label > Sorunun Başlığı:</label>
+                <input type="hidden" name="QuestionId" value="@Model.QuestionId"/>
+
+                <h5>@Model.QuestionTitle </h5><label > Sorunun İçeriği:</label>
+                <input type="hidden" name="QuestionId" value="@Model.QuestionId"/>
+                <p>@Model.QuestionContent </p>
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="Content">Cevabınız :</label>
+                <textarea asp-for="Content" class="form-control" rows="3" placeholder="Cevabınızın detayını buraya yazın"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Cevabı Gönder</button>
+        </div>
+    </form>
+</div>
+

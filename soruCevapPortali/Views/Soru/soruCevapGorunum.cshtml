@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "soruCevapGorunum";
+}
+@model soruCevapPortali.ViewModels.CiftOzellikModel
+<link rel="stylesheet" href="~/css/site.css" />
+
+<body>
+    <h2>Sorular</h2>
+    <br />
+    <ul class="list-group">
+        @foreach (var soru in Model.Questions)
+        {
+            <li class="list-group-item">
+                
+                <h5 class="mb-1">@soru.Title</h5>
+                <p class="mb-1">@soru.Content</p>
+                <small>Sorulma Tarihi: @soru.CreatedAt.ToString("dd MMMM yyyy")</small>
+                <a class="btn btn-primary" asp-controller="Soru" asp-route-id="@soru.QuestionId" asp-action="cevapEkle" asp-route-id="@soru.QuestionId" >Cevapla</a>
+            </li>
+        }
+    </ul>
+
+    <br />
+
+    <h2>Cevaplar</h2>
+    <ul class="list-group">
+        @foreach (var soru in Model.Questions)
+        {   <hr />
+            int i = 0;
+            <li class="list-group-item">
+                <h5 class="mb-1">@soru.Title</h5>
+                <p class="mb-1">@soru.Content</p>
+                
+            </li>
+            @foreach (var cevap in Model.Answers )
+            {
+                
+                if (soru.QuestionId == cevap.QuestionId && i < 2)
+                {
+                    <li class="list-group-item">
+                        <h6 class="mb-1">Cevaplar : </h6>
+                        <p class="mb-1">@cevap.Content</p>
+                    </li>
+                }
+                
+            }
+        }
+            
+    </ul>
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
